@@ -22,6 +22,14 @@
 - (void)setRequestHeaders:(NSDictionary*)headers forManager:(AFHTTPSessionManager*)manager {
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [headers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([[key lowercaseString] isEqualToString:@"content-type"]) {
+            if ([obj rangeOfString:@"application/json"].location != NSNotFound) {
+                manager.requestSerializer = [AFJSONRequestSerializer serializer];
+                *stop = YES;
+            }
+        }
+    }];
+    [headers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [manager.requestSerializer setValue:obj forHTTPHeaderField:key];
     }];
 }
