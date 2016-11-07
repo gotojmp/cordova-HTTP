@@ -92,6 +92,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
+import org.json.JSONObject;
+
 /**
  * A fluid interface for making HTTP requests using an underlying
  * {@link HttpURLConnection} (or sub-class).
@@ -3129,6 +3131,23 @@ public class HttpRequest {
     } catch (IOException e) {
       throw new HttpRequestException(e);
     }
+    return this;
+  }
+    
+  /**  
+   * Write JSONObject to request body
+   *
+   * @param value
+   * @return this request
+   * @throws HttpRequestException
+   */
+  public HttpRequest send(final JSONObject value) throws HttpRequestException {
+    try {
+      openOutput();
+      output.write(value.toString());
+    } catch (IOException e) { 
+      throw new HttpRequestException(e);
+    }    
     return this;
   }
 
