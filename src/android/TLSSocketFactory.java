@@ -1,4 +1,4 @@
-package com.github.kevinsawicki.http;
+package com.gotojmp.cordova.http;
 
 import java.io.IOException;
 import java.net.InetAddress;
