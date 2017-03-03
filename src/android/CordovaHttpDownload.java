@@ -5,8 +5,7 @@ package com.gotojmp.cordova.http;
 
 import android.util.Log;
 
-import com.github.kevinsawicki.http.HttpRequest;
-import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
+import com.gotojmp.cordova.http.HttpRequest.HttpRequestException;
 
 import java.io.File;
 import java.net.UnknownHostException;

@@ -14,8 +14,7 @@ import javax.net.ssl.SSLHandshakeException;
 
 import android.util.Log;
 
-import com.github.kevinsawicki.http.HttpRequest;
-import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
+import com.gotojmp.cordova.http.HttpRequest.HttpRequestException;
 
 public class CordovaHttpPost extends CordovaHttp implements Runnable {
     public CordovaHttpPost(String urlString, Map<?, ?> params, Map<String, String> headers, CallbackContext callbackContext) {
